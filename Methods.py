@@ -1,6 +1,3 @@
-from itertools import cycle
-from time import sleep
-
 import requests
 import Mcd_link
 from xml.etree import ElementTree
@@ -69,14 +66,4 @@ def display_info(final: dict):
 	:return:
 	"""
 	for key in final:
-		print(f" Product_id: {key} \n Статус: {final[key][0]}, Цена: {final[key][1]}")
-
-#
-# def preloder():
-# 	"""
-# 	Метод для показа прелоудер
-# 	:return:
-# 	"""
-# 	for frame in cycle(r'-\|/-\|/'):
-# 		print('\r', frame, sep='', end='', flush=True)
-# 		sleep(0.2)
+		print(f" Product_id: {key} \n Статус: {final[key][0]}, Цена: {final[key][1]} \n ______")
