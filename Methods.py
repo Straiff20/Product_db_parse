@@ -9,13 +9,15 @@ def make_url(pbo_number: str):
 	:param:pb0_number взят из input
 	:return: url
 	"""
+	url = ""
+	
 	if pbo_number == str(90033):
 		print(f"Введен {pbo_number}. Выполняю...")
 		url = Mcd_link.URL + Mcd_link.PBO_33
-	if pbo_number == str(90034):
+	elif pbo_number == str(90034):
 		print(f"Введен {pbo_number}. Выполняю...")
 		url = Mcd_link.URL + Mcd_link.PBO_34
-	if pbo_number != str(str(90033) or str(90034)):
+	elif pbo_number != str(str(90033) or str(90034)):
 		print(f"Введен неверный ПБО - {pbo_number}. Доступны только 90033 и 90034")
 	
 	return str(url)
@@ -40,7 +42,7 @@ def parse_product_db(events):
 	"""
 	Метод для обработки xml-ответа на GET-запрос
 	:param events: дерево полученное из ответа за GET запрос
-	:return:
+	:return: dict final с данными
 	"""
 	print(f"Обрабатываю product_db. Займет какое то время...")
 	
@@ -66,4 +68,4 @@ def display_info(final: dict):
 	:return:
 	"""
 	for key in final:
-		print(f" Product_id: {key} \n Статус: {final[key][0]}, Цена: {final[key][1]} \n ______")
+		print(f" Product_id: {key} \n Статус: {final[key][0]}, Цена: {final[key][1]} \n ------")
